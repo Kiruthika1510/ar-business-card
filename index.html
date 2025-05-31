@@ -1,19 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AR Visiting Card</title>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <title>AR Card</title>
+    <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
-    <style>body { margin: 0; overflow: hidden; }</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.css" />
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
   </head>
   <body>
-    <mindar-image-scene imageTargetSrc="marker.mind" autoStart="true">
-      <a-camera position="0 0 0" look-controls="enabled"></a-camera>
+    <a-scene mindar-image="imageTargetSrc: marker.mind" color-space="sRGB" embedded
+             vr-mode-ui="enabled: false"
+             device-orientation-permission-ui="enabled: true">
+             
+      <a-assets>
+        <!-- You can preload any assets here if needed -->
+      </a-assets>
+
+      <a-camera position="0 0 0" look-controls="false"></a-camera>
+
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-text value="John Doe\nWebAR Business Card" position="0 0 0" color="green" scale="0.5 0.5 0.5"></a-text>
-        <!-- You can add models or video here later -->
+        <a-text value="Hi from AR!" position="0 0 0" color="red"></a-text>
       </a-entity>
-    </mindar-image-scene>
+      
+    </a-scene>
   </body>
 </html>
