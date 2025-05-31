@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AR Card</title>
-    <!-- ✅ Correct A-Frame and MindAR versions -->
+    <title>AR Test</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mind-ar@1.1.4/dist/mindar-image-aframe.prod.css" />
     <style>
       body { margin: 0; overflow: hidden; }
+      canvas { position: absolute; top: 0; left: 0; }
     </style>
   </head>
   <body>
-    <a-scene mindar-image="imageTargetSrc: marker.mind" color-space="sRGB" embedded
-             vr-mode-ui="enabled: false"
-             device-orientation-permission-ui="enabled: true">
-
-      <a-assets></a-assets>
+    <a-scene
+      mindar-image="imageTargetSrc: ./targets.mind;"
+      embedded
+      color-space="sRGB"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
+      renderer="colorManagement: true, physicallyCorrectLights"
+    >
+      <a-assets>
+        <!-- your asset definitions here -->
+      </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
-        <a-text value="Hi from AR!" position="0 0 0" color="red"></a-text>
+        <a-text value="Hello AR!" position="0 0 0" color="red"></a-text>
       </a-entity>
-
     </a-scene>
   </body>
 </html>
